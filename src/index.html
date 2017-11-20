@@ -3,9 +3,17 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Omok - battle</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/phaser-ce/2.9.2/phaser.min.js"></script>
 </head>
 <body>
 	<div id="content"></div>
+	
 	<script src="js/index.js"></script>
+	<script>
+		window.onload = function(){
+			var game = new OMOK.Game();
+			game.start();
+		};
+	</script>
 </body>
 </html>

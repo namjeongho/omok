@@ -1,4 +1,8 @@
 import Game from './Game';
 
-const a = new Game();
-a.start();
+export {
+    Game
+};
+
+global.OMOK = exports;
+

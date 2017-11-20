@@ -9,11 +9,12 @@
     "start": "gulp serve"
   },
   "keywords": [
-    "omok",
-    "game",
-    "javascript",
+    "phaser",
+    "html5",
     "canvas",
-    "html5"
+    "game",
+    "omok",
+    "javascript"
   ],
   "author": "Justin Nam",
   "license": "ISC",

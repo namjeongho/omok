@@ -7,7 +7,7 @@ var del = require('del');
 
 var SOURCE_PATH = './src';
 var ENTRY_FILE = SOURCE_PATH + '/js/index.js';
-var BUILD_PATH = './dist';
+var BUILD_PATH = './build';
 var JS_BUILD_PATH = BUILD_PATH + '/js';
 
 var browserify_option = {
@@ -17,7 +17,7 @@ var browserify_option = {
 
 gulp.task('clean', function(){
     return del([
-        'dist/**/*'
+        'build/**/*'
     ]);
 });
 
@@ -45,7 +45,7 @@ gulp.task('serve', function(){
             baseDir: BUILD_PATH,
             directory: false
         },
-        open: true
+        open: false
     });
 });
 
