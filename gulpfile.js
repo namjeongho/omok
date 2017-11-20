@@ -12,36 +12,38 @@ var JS_BUILD_PATH = BUILD_PATH + '/js';
 
 var browserify_option = {
     entries: ENTRY_FILE,
-    debug : true,
+    debug: true,
 };
 
-gulp.task('clean', function(){
+gulp.task('clean', function() {
     return del([
         'build/**/*'
     ]);
 });
 
-gulp.task('html', ['clean'], function(){
+gulp.task('html', ['clean'], function() {
     return gulp.src(SOURCE_PATH + '/*.html')
-    .pipe(gulp.dest(BUILD_PATH));
+        .pipe(gulp.dest(BUILD_PATH));
 });
 
-gulp.task('css', ['html'], function(){
+gulp.task('css', ['html'], function() {
     return gulp.src(SOURCE_PATH + '/css/*')
-    .pipe(gulp.dest(BUILD_PATH + '/css/'));
+        .pipe(gulp.dest(BUILD_PATH + '/css/'));
 });
 
-gulp.task('build', ['css'], function(){
+gulp.task('build', ['css'], function() {
     browserify(browserify_option)
-    .transform(babelify, {presets:["env"]})
-    .bundle()
-    .pipe(source("index.js"))
-    .pipe(gulp.dest(JS_BUILD_PATH));
+        .transform(babelify, {
+            presets: ["env"]
+        })
+        .bundle()
+        .pipe(source("index.js"))
+        .pipe(gulp.dest(JS_BUILD_PATH));
 });
 
-gulp.task('serve', function(){
+gulp.task('serve', ['build'], function() {
     browserSync({
-        server:{
+        server: {
             baseDir: BUILD_PATH,
             directory: false
         },
@@ -51,4 +53,4 @@ gulp.task('serve', function(){
 
 
 
-gulp.task('default', ['build']);
+gulp.task('default', ['serve']);
