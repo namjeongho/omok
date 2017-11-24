@@ -1,10 +1,10 @@
-export const STONE = {
+const STONE = {
     NONE: 0,
     BLACK: 1,
     WHITE: 2
 };
 
-export default class Board {
+class Board {
     constructor(col, row) {
         this.numCol = col;
         this.numRow = row;
@@ -92,3 +92,5 @@ export default class Board {
     }
 
 }
+
+export { STONE, Board };
