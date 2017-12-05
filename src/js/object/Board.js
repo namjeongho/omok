@@ -1,3 +1,5 @@
+import BoardRenderer from '../renderer/BoardRenderer';
+
 const STONE = {
     NONE: 0,
     BLACK: 1,
@@ -5,7 +7,8 @@ const STONE = {
 };
 
 class Board {
-    constructor(col, row) {
+    constructor(game, col, row) {
+        this.game = game;
         this.numCol = col;
         this.numRow = row;
         this.board = new Array(col);
@@ -13,6 +16,12 @@ class Board {
             this.board[i] = new Array(row);
             this.board[i].fill(0);
         }
+
+        this.boardRenderer = new BoardRenderer(this.game);
+    }
+
+    create() {
+
     }
 
     clear() {
